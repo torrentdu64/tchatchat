@@ -1,10 +1,10 @@
-App.tchat = App.cable.subscriptions.create "TchatChannel",
+App.poke = App.cable.subscriptions.create "PokeChannel",
   connected: ->
-    # Called when the subscription is ready for use on the server
-
+    $('#button').click =>
+     @perform('poke', {})
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log(data)
+    alert('poke')
     # Called when there's incoming data on the websocket for this channel
