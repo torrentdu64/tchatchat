@@ -10,6 +10,6 @@
   end
 
   def tchat
-    ActionCable.server.broadcast('tchat', {content: 'salut'})
+    #ActionCable.server.broadcast('tchat', {content: 'salut'})
   end
 end
