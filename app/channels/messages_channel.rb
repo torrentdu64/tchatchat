@@ -1,14 +1,14 @@
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
      stream_from "messages"
+
   end
 
-  def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
-  end
+
 
   def speak(data)
-    ActionCable.server.broadcast 'messages' , message: data['message']
+    message = ApplicationController.render(partial: 'partials/message', locals:{message: data['message']})
+    ActionCable.server.broadcast( 'messages' , {message: message})
 
   end
 end

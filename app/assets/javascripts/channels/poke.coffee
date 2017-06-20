@@ -1,7 +1,8 @@
 App.poke = App.cable.subscriptions.create "PokeChannel",
   connected: ->
     $('#button').click =>
-     @perform('poke', {})
+     @perform('poke', {} )
+
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
